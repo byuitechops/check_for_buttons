@@ -6,7 +6,7 @@ var path = "./courses";
 var dirs = getdirs(path);
 
 //Reset the hits output file.
-fs.writeFile('./hits.csv', '', (err) => {
+fs.writeFile('./hits.csv', 'LINK\r\n', (err) => {
     if (err) throw err;
     console.log('Hits file emptied.')
 })
@@ -38,8 +38,8 @@ function gethits(dirs) {
                     fs.readFile(filepath, 'utf8', (err, data) => {
                         if (err) throw err;
                         // SEARCH STRING HERE.
-                        if (data.indexOf('butt') >= 0) {
-                            fs.appendFile('./hits.csv', filepath + ', \r\n', (err) => {
+                        if (data.indexOf('&lt;script') >= 0) {
+                            fs.appendFile('./hits.csv', filepath + '\r\n', (err) => {
                                 if (err) throw err;
                                 console.log(filepath + " added to hits.");
                             });
